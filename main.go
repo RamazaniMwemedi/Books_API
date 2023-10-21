@@ -1,8 +1,19 @@
 package main
 
-import "main/GO_RESTAPI/controllers/login"
+import (
+	booksRouter "main/GO_RESTAPI/controllers/books"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	user := login.Login()
-	print("Name ", user)
+	router := gin.Default()
+	// Get all books
+	router.GET("/books", func(ctx *gin.Context) {
+		booksRouter.GetAllBooks(ctx)
+	})
+	// Get a
+	
+	router.Run(":8080")
+
 }
