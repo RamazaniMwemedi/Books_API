@@ -12,8 +12,11 @@ func main() {
 	router.GET("/books", func(ctx *gin.Context) {
 		booksRouter.GetAllBooks(ctx)
 	})
-	// Get a
-	
+	// Get a book
+	router.GET("/books/:id", func(ctx *gin.Context) {
+		booksRouter.GetBook(ctx)
+	})
+
 	router.Run(":8080")
 
 }
